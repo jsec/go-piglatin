@@ -1,4 +1,4 @@
-# go-spin
+# go-piglatin
 
  A simple command-line utility to translate an arbitrary array of words into pig latin.
 
