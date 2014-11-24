@@ -1,6 +1,9 @@
 package piglatin
 
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 const (
 	vowel            string = "aeiou"
@@ -22,6 +25,10 @@ func Translate(word string) string {
 		translatedWord = word[firstVowel:] + word[:firstVowel] + baseSuffix
 	}
 
+	if endsinPunctuation(word) {
+		fmt.Println(word)
+	}
+
 	return translatedWord
 }
 
@@ -34,4 +41,14 @@ func findFirstVowel(word string) int {
 	}
 
 	return 0
+}
+
+func endsinPunctuation(word string) bool {
+	char := word[len(word)-1:]
+	switch char {
+	case ".", ",", "!", "?", ":", ";":
+		return true
+	}
+
+	return false
 }

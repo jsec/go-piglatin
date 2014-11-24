@@ -1,23 +1,25 @@
-package piglatin
+package piglatin_test
 
-import "testing"
+import (
+	. "github.com/jsec/piglatin"
 
-func TestStartsWithConsonant(t *testing.T) {
-	VerifyTranslation("derp", "erpday", t)
-}
+	. "github.com/onsi/ginkgo"
+	. "github.com/onsi/gomega"
+)
 
-func TestStartsWithVowel(t *testing.T) {
-	VerifyTranslation("eggnog", "eggnogway", t)
-}
+var _ = Describe("Translations", func() {
+	It("starts with a consonant", func() {
+		word := "derp"
+		Expect(Translate(word)).To(Equal("erpday"))
+	})
 
-func TestStartsWithConsonantChunk(t *testing.T) {
-	VerifyTranslation("chloroform", "oroformchlay", t)
-}
+	It("starts with a vowel", func() {
+		word := "eggnog"
+		Expect(Translate(word)).To(Equal("eggnogway"))
+	})
 
-func VerifyTranslation(word, expected string, t *testing.T) {
-	result := Translate(word)
-
-	if expected != result {
-		t.Error("Expected " + expected + ", got " + result)
-	}
-}
+	It("starts with a consonant chunk", func() {
+		word := "chloroform"
+		Expect(Translate(word)).To(Equal("oroformchlay"))
+	})
+})
