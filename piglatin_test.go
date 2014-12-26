@@ -1,7 +1,7 @@
 package piglatin_test
 
 import (
-	. "github.com/jsec/piglatin"
+	. "github.com/jsec/go-piglatin"
 
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
