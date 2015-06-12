@@ -1,4 +1,4 @@
-# go-piglatin
+# go-piglatin [![Build Status](https://drone.io/github.com/jsec/go-piglatin/status.png)](https://drone.io/github.com/jsec/go-piglatin/latest)
 
  A simple command-line utility to translate an arbitrary array of words into pig latin.
 
