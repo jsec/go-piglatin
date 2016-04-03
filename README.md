@@ -1,4 +1,4 @@
-# go-piglatin [![Build Status](https://drone.io/github.com/jsec/go-piglatin/status.png)](https://drone.io/github.com/jsec/go-piglatin/latest)
+# go-piglatin
 
  A simple command-line utility to translate an arbitrary array of words into pig latin.
 
@@ -19,7 +19,7 @@ Example can be found in example folder
 ```
 $ piglatin-example hello darkness my old friend
   ellohay arknessday ymay oldway iendfray
-``` 
+```
 
 # License
 
