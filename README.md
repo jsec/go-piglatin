@@ -1,4 +1,4 @@
-# go-piglatin
+# go-piglatin [![Build Status](https://travis-ci.org/jsec/go-piglatin.svg?branch=master)](https://travis-ci.org/jsec/go-piglatin)
 
  A simple command-line utility to translate an arbitrary array of words into pig latin.
 
