@@ -1,39 +1,40 @@
-package piglatin_test
+package piglatin
 
 import (
-	. "github.com/jsec/go-piglatin"
-
-	. "github.com/onsi/ginkgo"
-	. "github.com/onsi/gomega"
+	. "github.com/franela/goblin"
+	"testing"
 )
 
-var _ = Describe("Translations", func() {
-	Describe("first character conditions", func() {
-		It("starts with a consonant", func() {
-			word := "derp"
-			Expect(Translate(word)).To(Equal("erpday"))
+func Test(t *testing.T) {
+	g := Goblin(t)
+
+	VerifyTranslation := func(word, expected string) {
+		g.Assert(Translate(word)).Equal(expected)
+	}
+
+	g.Describe("Translations", func() {
+		g.Describe("First character conditions", func() {
+			g.It("starts with a consonant", func() {
+				VerifyTranslation("derp", "erpday")
+			})
+
+			g.It("starts with a vowel", func() {
+				VerifyTranslation("eggnog", "eggnogway")
+			})
+
+			g.It("starts with a consonant chunk", func() {
+				VerifyTranslation("chloroform", "oroformchlay")
+			})
 		})
 
-		It("starts with a vowel", func() {
-			word := "eggnog"
-			Expect(Translate(word)).To(Equal("eggnogway"))
-		})
+		g.Describe("Ends in punctuation", func() {
+			g.It("ends with punctuation", func() {
+				VerifyTranslation("herp,", "erphay,")
+			})
 
-		It("starts with a consonant chunk", func() {
-			word := "chloroform"
-			Expect(Translate(word)).To(Equal("oroformchlay"))
+			g.It("ends with a period", func() {
+				VerifyTranslation("derp.", "erpday.")
+			})
 		})
 	})
-
-	Describe("ends with punctuation", func() {
-		It("ends with a comma", func() {
-			word := "herp,"
-			Expect(Translate(word)).To(Equal("erphay,"))
-		})
-
-		It("ends with a period", func() {
-			word := "derp."
-			Expect(Translate(word)).To(Equal("erpday."))
-		})
-	})
-})
+}

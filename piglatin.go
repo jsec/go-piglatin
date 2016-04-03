@@ -10,6 +10,8 @@ const (
 	vowelStartSuffix string = "w" + baseSuffix
 )
 
+// Translate accepts a string as an argument, and returns
+// a generated pig-latin translation
 func Translate(word string) string {
 
 	if endsInPunctuation(word) {
@@ -17,9 +19,9 @@ func Translate(word string) string {
 		stripped := word[:len(word)-1]
 
 		return getTranslation(stripped) + punc
-	} else {
-		return getTranslation(word)
 	}
+
+	return getTranslation(word)
 }
 
 func getTranslation(word string) string {
@@ -27,10 +29,10 @@ func getTranslation(word string) string {
 
 	if strings.Contains(vowel, first) {
 		return word + vowelStartSuffix
-	} else {
-		firstVowel := findFirstVowel(word)
-		return word[firstVowel:] + word[:firstVowel] + baseSuffix
 	}
+
+	firstVowel := findFirstVowel(word)
+	return word[firstVowel:] + word[:firstVowel] + baseSuffix
 }
 
 func findFirstVowel(word string) int {
