@@ -1,12 +1,12 @@
 package piglatin
 
 import (
-	. "github.com/franela/goblin"
+	"github.com/franela/goblin"
 	"testing"
 )
 
 func Test(t *testing.T) {
-	g := Goblin(t)
+	g := goblin.Goblin(t)
 
 	VerifyTranslation := func(word, expected string) {
 		g.Assert(Translate(word)).Equal(expected)
